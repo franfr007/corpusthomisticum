@@ -164,7 +164,7 @@ function renderWorksList() {
             </div>
         </div>
         
-        <div class="works-grid">
+        <div class="works-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
             ${filteredWorks.map((work, index) => `
                 <div class="work-card fade-in" style="animation-delay: ${index * 0.05}s" onclick="loadWork('${work.id}')">
                     <div style="font-size: 0.75rem; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
