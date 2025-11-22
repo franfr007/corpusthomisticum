@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opera Omnia • Sanctus Thomas Aquinas</title>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <div class="container">
@@ -18,13 +18,13 @@
             <div class="api-config fade-in">
                 <h3>Configuración</h3>
                 <div class="input-group">
-                    <input type="text" id="apiKey" placeholder="DeepSeek API Key" value="sk-cba9755f54d246d39fdd24421c8ee1ca">
+                    <input type="text" id="apiKey" placeholder="Google Gemini API Key" value="AIzaSyB2gMDNI7974MgcW-x9Ho4WYSI7v0wnY4A">
                 </div>
                 <div class="input-group" style="margin-top: 1rem;">
                     <input type="text" id="workerUrl" placeholder="URL de tu Cloudflare Worker" value="https://corpus-thomisticum-proxy.francisco-fernandezr.workers.dev">
                 </div>
                 <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--ink-medium);">
-                    ⚠️ Necesitas configurar un Cloudflare Worker para resolver CORS (ver worker.js)
+                    Usando Gemini 2.0 Flash para traducción
                 </p>
             </div>
 
@@ -33,6 +33,6 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="./app.js"></script>
 </body>
 </html>
