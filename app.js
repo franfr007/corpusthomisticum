@@ -1,16 +1,19 @@
+
 // Configuración de obras organizadas por categorías
 const WORKS = [
-    // OPUSCULA PHILOSOPHICA
-    { id: 'ente', title: 'De ente et essentia', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oee.html' },
-    { id: 'principiis', title: 'De principiis naturae', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/opn.html' },
-    { id: 'unitate', title: 'De unitate intellectus', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oca.html' },
-    { id: 'aeternitate', title: 'De aeternitate mundi', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ocm.html' },
-    { id: 'substantiis', title: 'De substantiis separatis', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ots.html' },
-    
-    // OPUSCULA THEOLOGICA
-    { id: 'articulis', title: 'De articulis Fidei', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oss.html' },
-    { id: 'rationibus', title: 'De rationibus Fidei', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ocg.html' },
-    { id: 'compendium', title: 'Compendium theologiae', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ott101.html' },
+    // OPERA MAIORA
+    { id: 'sent-1', title: 'Scriptum super Sententiis - Liber I', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/snp1001.html' },
+    { id: 'sent-2', title: 'Scriptum super Sententiis - Liber II', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/snp2000.html' },
+    { id: 'sent-3', title: 'Scriptum super Sententiis - Liber III', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/snp3000.html' },
+    { id: 'sent-4', title: 'Scriptum super Sententiis - Liber IV', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/snp4000.html' },
+    { id: 'scg-1', title: 'Summa contra Gentiles - Liber I', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/scg1001.html' },
+    { id: 'scg-2', title: 'Summa contra Gentiles - Liber II', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/scg2001.html' },
+    { id: 'scg-3', title: 'Summa contra Gentiles - Liber III', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/scg3001.html' },
+    { id: 'scg-4', title: 'Summa contra Gentiles - Liber IV', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/scg4001.html' },
+    { id: 'sth-1', title: 'Summa Theologiae - Prima Pars', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/sth1001.html' },
+    { id: 'sth-12', title: 'Summa Theologiae - Prima Secundae', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/sth2000.html' },
+    { id: 'sth-22', title: 'Summa Theologiae - Secunda Secundae', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/sth3000.html' },
+    { id: 'sth-3', title: 'Summa Theologiae - Tertia Pars', category: 'Opera Maiora', url: 'https://www.corpusthomisticum.org/sth4000.html' },
     
     // QUAESTIONES DISPUTATAE
     { id: 'qd-veritate', title: 'De veritate', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/qdv01.html' },
@@ -20,8 +23,6 @@ const WORKS = [
     { id: 'qd-virtutibus', title: 'De virtutibus', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/qdw100.html' },
     { id: 'qd-spiritualibus', title: 'De spiritualibus creaturis', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/qds.html' },
     { id: 'qd-unione', title: 'De unione Verbi', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/qdi.html' },
-    
-    // QUODLIBETA
     { id: 'quod-1', title: 'Quodlibet I', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/q01.html' },
     { id: 'quod-2', title: 'Quodlibet II', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/q02.html' },
     { id: 'quod-3', title: 'Quodlibet III', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/q03.html' },
@@ -29,10 +30,25 @@ const WORKS = [
     { id: 'quod-7', title: 'Quodlibet VII', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/q07.html' },
     { id: 'quod-12', title: 'Quodlibet XII', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/q12.html' },
     
+    // OPUSCULA
+    { id: 'ente', title: 'De ente et essentia', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oee.html' },
+    { id: 'principiis', title: 'De principiis naturae', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/opn.html' },
+    { id: 'unitate', title: 'De unitate intellectus', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oca.html' },
+    { id: 'aeternitate', title: 'De aeternitate mundi', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ocm.html' },
+    { id: 'substantiis', title: 'De substantiis separatis', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ots.html' },
+    { id: 'articulis', title: 'De articulis Fidei', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oss.html' },
+    { id: 'rationibus', title: 'De rationibus Fidei', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ocg.html' },
+    { id: 'compendium', title: 'Compendium theologiae', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ott101.html' },
+    { id: 'impugnantes', title: 'Contra impugnantes', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oci0.html' },
+    { id: 'retrahentes', title: 'Contra retrahentes', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ocr.html' },
+    { id: 'perfectione', title: 'De perfectione', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oap.html' },
+    { id: 'errores', title: 'Contra errores Graecorum', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oce.html' },
+    { id: 'regno', title: 'De regno', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/orp.html' },
+    
     // COMMENTARIA IN ARISTOTELEM
     { id: 'peryermeneias', title: 'In Peryermeneias', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cpe.html' },
     { id: 'post-analytica', title: 'In Posteriorum Analyticorum', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cpa1.html' },
-    { id: 'physicorum', title: 'In libros Physicorum', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cpy011.html' },
+    { id: 'physicorum', title: 'In Physicorum', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cpy011.html' },
     { id: 'caelo', title: 'In De caelo et mundo', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/ccm0.html' },
     { id: 'generatione', title: 'In De generatione', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cgc00.html' },
     { id: 'meteora', title: 'In Meteora', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cme1.html' },
@@ -41,12 +57,8 @@ const WORKS = [
     { id: 'ethicorum', title: 'In Ethicorum', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/ctc0101.html' },
     { id: 'politicorum', title: 'In Politicorum', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cpo.html' },
     { id: 'metaphysicae', title: 'In Metaphysicae', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cmp00.html' },
-    
-    // COMMENTARIA NEOPLATONICA
     { id: 'de-causis', title: 'Super De causis', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cdc00.html' },
     { id: 'div-nominibus', title: 'Super De divinis nominibus', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cdn00.html' },
-    
-    // COMMENTARIA IN BOETHIUM
     { id: 'ebdomadibus', title: 'In De ebdomadibus', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cbh.html' },
     { id: 'trinitate', title: 'In De Trinitate', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cbt.html' },
     
@@ -62,17 +74,26 @@ const WORKS = [
     { id: 'cor2', title: 'Super II Corinthios', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/c2c.html' },
     { id: 'galatas', title: 'Super Galatas', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cgl.html' },
     { id: 'ephesios', title: 'Super Ephesios', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cep.html' },
-    { id: 'philippenses', title: 'Super Philippenses', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cpl.html' },
-    { id: 'colossenses', title: 'Super Colossenses', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/ccl.html' },
-    { id: 'thes1', title: 'Super I Thessalonicenses', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/c1t.html' },
-    { id: 'tim1', title: 'Super I Timotheum', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/ct1.html' },
     { id: 'hebraeos', title: 'Super Hebraeos', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/che00.html' },
+    { id: 'catena-mt', title: 'Catena in Matthaeum', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cmt00a.html' },
+    { id: 'catena-mc', title: 'Catena in Marcum', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cmc00a.html' },
+    { id: 'catena-lc', title: 'Catena in Lucam', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/clc00.html' },
+    { id: 'catena-io', title: 'Catena in Ioannem', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cjo00.html' },
     
-    // COLLATIONES
+    // COLLATIONES ET SERMONES
     { id: 'symbolum', title: 'In Symbolum Apostolorum', category: 'Collationes', url: 'https://www.corpusthomisticum.org/csv.html' },
     { id: 'pater', title: 'In orationem dominicam', category: 'Collationes', url: 'https://www.corpusthomisticum.org/csu00.html' },
     { id: 'ave', title: 'Expositio Salutationis angelicae', category: 'Collationes', url: 'https://www.corpusthomisticum.org/cst.html' },
-    { id: 'praecepta', title: 'De decem praeceptis', category: 'Collationes', url: 'https://www.corpusthomisticum.org/cac.html' }
+    { id: 'praecepta', title: 'De decem praeceptis', category: 'Collationes', url: 'https://www.corpusthomisticum.org/cac.html' },
+    
+    // OPERA PROBABILIA
+    { id: 'adoro-te', title: 'Adoro te devote', category: 'Opera Probabilia', url: 'https://www.corpusthomisticum.org/pat.html' },
+    { id: 'officium', title: 'Officium Corporis Christi', category: 'Opera Probabilia', url: 'https://www.corpusthomisticum.org/pcx.html' },
+    
+    // OPERA DUBIA
+    { id: 'cognitione', title: 'De cognitione animae', category: 'Opera Dubia', url: 'https://www.corpusthomisticum.org/dca.html' },
+    { id: 'immortalitate', title: 'De immortalitate animae', category: 'Opera Dubia', url: 'https://www.corpusthomisticum.org/dia.html' },
+    { id: 'fallaciis', title: 'De fallaciis', category: 'Opera Dubia', url: 'https://www.corpusthomisticum.org/dp3.html' }
 ];
 
 // Estado de la aplicación
