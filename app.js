@@ -250,42 +250,40 @@ async function changeSection(newIndex) {
 // Traducir una sección
 async function translateSection(index) {
     if (!state.apiKey) {
-        showError('Por favor, configura tu API key de DeepSeek');
+        showError('Por favor, configura tu API key de Gemini');
         return;
     }
     
     const section = state.sections[index];
     
     try {
-        const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${state.apiKey}`;
+        
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${state.apiKey}`
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: 'deepseek-chat',
-                messages: [
-                    {
-                        role: 'system',
-                        content: 'Eres un experto traductor de latín clásico y filosófico al español. Traduce el siguiente texto de Santo Tomás de Aquino manteniendo la precisión filosófica y el estilo académico. Proporciona únicamente la traducción sin comentarios adicionales.'
-                    },
-                    {
-                        role: 'user',
-                        content: section.latin
-                    }
-                ],
-                temperature: 0.3,
-                max_tokens: 4000
+                contents: [{
+                    parts: [{
+                        text: `Eres un experto traductor de latín clásico y filosófico al español. Traduce el siguiente texto de Santo Tomás de Aquino manteniendo la precisión filosófica y el estilo académico. Proporciona únicamente la traducción sin comentarios adicionales.\n\nTexto en latín:\n${section.latin}`
+                    }]
+                }],
+                generationConfig: {
+                    temperature: 0.3,
+                    maxOutputTokens: 4000
+                }
             })
         });
         
         if (!response.ok) {
-            throw new Error(`Error de API: ${response.status}`);
+            const errorData = await response.json();
+            throw new Error(`Error de API: ${response.status} - ${errorData.error?.message || 'Error desconocido'}`);
         }
         
         const data = await response.json();
-        const translation = data.choices[0].message.content;
+        const translation = data.candidates[0].content.parts[0].text;
         
         // Guardar la traducción
         state.sections[index].spanish = translation;
