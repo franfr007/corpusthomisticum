@@ -1,4 +1,3 @@
-
 // Configuración de obras organizadas por categorías
 const WORKS = [
     // OPERA MAIORA
@@ -98,7 +97,6 @@ const WORKS = [
 
 // Estado de la aplicación
 let state = {
-    apiKey: '',
     workerUrl: '',
     selectedWork: null,
     sections: [],
@@ -109,16 +107,11 @@ let state = {
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
-    state.apiKey = document.getElementById('apiKey').value;
     state.workerUrl = document.getElementById('workerUrl').value;
     
     renderWorksList();
     
-    // Event listeners para configuración
-    document.getElementById('apiKey').addEventListener('change', (e) => {
-        state.apiKey = e.target.value;
-    });
-    
+    // Event listener para configuración
     document.getElementById('workerUrl').addEventListener('change', (e) => {
         state.workerUrl = e.target.value;
     });
@@ -375,41 +368,31 @@ async function changeSection(newIndex) {
 
 // Traducir una sección
 async function translateSection(index) {
-    if (!state.apiKey) {
-        showError('Por favor, configura tu API key de Gemini');
+    if (!state.workerUrl) {
+        showError('Por favor, configura la URL del Cloudflare Worker');
         return;
     }
     
     const section = state.sections[index];
     
     try {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${state.apiKey}`;
-        
-        const response = await fetch(url, {
+        const response = await fetch(`${state.workerUrl}/translate`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                contents: [{
-                    parts: [{
-                        text: `Eres un experto traductor de latín clásico y filosófico al español. Traduce el siguiente texto de Santo Tomás de Aquino manteniendo la precisión filosófica y el estilo académico. Proporciona únicamente la traducción sin comentarios adicionales.\n\nTexto en latín:\n${section.latin}`
-                    }]
-                }],
-                generationConfig: {
-                    temperature: 0.3,
-                    maxOutputTokens: 4000
-                }
+                text: section.latin
             })
         });
         
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(`Error de API: ${response.status} - ${errorData.error?.message || 'Error desconocido'}`);
+            throw new Error(errorData.error || `Error de API: ${response.status}`);
         }
         
         const data = await response.json();
-        const translation = data.candidates[0].content.parts[0].text;
+        const translation = data.translation;
         
         // Guardar la traducción
         state.sections[index].spanish = translation;
