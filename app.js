@@ -1,102 +1,78 @@
-// Configuración de obras
+// Configuración de obras organizadas por categorías
 const WORKS = [
-    // Opuscula
-    {
-        id: 'ente',
-        title: 'De ente et essentia',
-        description: 'Tratado sobre el ente y la esencia',
-        url: 'https://www.corpusthomisticum.org/oee.html'
-    },
-    {
-        id: 'principiis',
-        title: 'De principiis naturae',
-        description: 'Los principios de la naturaleza',
-        url: 'https://www.corpusthomisticum.org/opn.html'
-    },
-    {
-        id: 'unitate',
-        title: 'De unitate intellectus',
-        description: 'Sobre la unidad del intelecto',
-        url: 'https://www.corpusthomisticum.org/oui.html'
-    },
-    {
-        id: 'aeternitate',
-        title: 'De aeternitate mundi',
-        description: 'Sobre la eternidad del mundo',
-        url: 'https://www.corpusthomisticum.org/oae.html'
-    },
-    {
-        id: 'substantiis',
-        title: 'De substantiis separatis',
-        description: 'Las sustancias separadas',
-        url: 'https://www.corpusthomisticum.org/oss.html'
-    },
+    // OPUSCULA PHILOSOPHICA
+    { id: 'ente', title: 'De ente et essentia', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oee.html' },
+    { id: 'principiis', title: 'De principiis naturae', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/opn.html' },
+    { id: 'unitate', title: 'De unitate intellectus', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oca.html' },
+    { id: 'aeternitate', title: 'De aeternitate mundi', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ocm.html' },
+    { id: 'substantiis', title: 'De substantiis separatis', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ots.html' },
     
-    // Commentaria in Aristotelem
-    {
-        id: 'post-analytica',
-        title: 'In Posteriorum Analyticorum',
-        description: 'Comentario a los Analíticos Posteriores',
-        url: 'https://www.corpusthomisticum.org/cpa1.html'
-    },
-    {
-        id: 'physicorum',
-        title: 'In libros Physicorum',
-        description: 'Comentario a la Física de Aristóteles',
-        url: 'https://www.corpusthomisticum.org/cpy011.html'
-    },
-    {
-        id: 'de-anima',
-        title: 'Sententia libri De anima',
-        description: 'Comentario sobre el alma',
-        url: 'https://www.corpusthomisticum.org/can1.html'
-    },
-    {
-        id: 'ethicorum',
-        title: 'Sententia libri Ethicorum',
-        description: 'Comentario a la Ética a Nicómaco',
-        url: 'https://www.corpusthomisticum.org/ctc0101.html'
-    },
-    {
-        id: 'metaphysicae',
-        title: 'Sententia libri Metaphysicae',
-        description: 'Comentario a la Metafísica',
-        url: 'https://www.corpusthomisticum.org/cmp00.html'
-    },
+    // OPUSCULA THEOLOGICA
+    { id: 'articulis', title: 'De articulis Fidei', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/oss.html' },
+    { id: 'rationibus', title: 'De rationibus Fidei', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ocg.html' },
+    { id: 'compendium', title: 'Compendium theologiae', category: 'Opuscula', url: 'https://www.corpusthomisticum.org/ott101.html' },
     
-    // Commentaria neoplatonica
-    {
-        id: 'de-causis',
-        title: 'Super librum De causis',
-        description: 'Sobre el Libro de las Causas',
-        url: 'https://www.corpusthomisticum.org/cdc00.html'
-    },
-    {
-        id: 'div-nominibus',
-        title: 'Super De divinis nominibus',
-        description: 'Sobre los Nombres Divinos de Dionisio',
-        url: 'https://www.corpusthomisticum.org/cdn00.html'
-    },
+    // QUAESTIONES DISPUTATAE
+    { id: 'qd-veritate', title: 'De veritate', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/qdv01.html' },
+    { id: 'qd-potentia', title: 'De potentia', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/qdp1.html' },
+    { id: 'qd-anima', title: 'De anima', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/qda00.html' },
+    { id: 'qd-malo', title: 'De malo', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/qdm01.html' },
+    { id: 'qd-virtutibus', title: 'De virtutibus', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/qdw100.html' },
+    { id: 'qd-spiritualibus', title: 'De spiritualibus creaturis', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/qds.html' },
+    { id: 'qd-unione', title: 'De unione Verbi', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/qdi.html' },
     
-    // Commentaria biblica
-    {
-        id: 'super-iob',
-        title: 'Super Iob',
-        description: 'Comentario al libro de Job',
-        url: 'https://www.corpusthomisticum.org/cio00.html'
-    },
-    {
-        id: 'super-ioannem',
-        title: 'Super Ioannem',
-        description: 'Comentario al Evangelio de Juan',
-        url: 'https://www.corpusthomisticum.org/cih00.html'
-    },
-    {
-        id: 'super-romanos',
-        title: 'Super Romanos',
-        description: 'Comentario a la Epístola a los Romanos',
-        url: 'https://www.corpusthomisticum.org/cro00.html'
-    }
+    // QUODLIBETA
+    { id: 'quod-1', title: 'Quodlibet I', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/q01.html' },
+    { id: 'quod-2', title: 'Quodlibet II', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/q02.html' },
+    { id: 'quod-3', title: 'Quodlibet III', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/q03.html' },
+    { id: 'quod-6', title: 'Quodlibet VI', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/q06.html' },
+    { id: 'quod-7', title: 'Quodlibet VII', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/q07.html' },
+    { id: 'quod-12', title: 'Quodlibet XII', category: 'Quaestiones', url: 'https://www.corpusthomisticum.org/q12.html' },
+    
+    // COMMENTARIA IN ARISTOTELEM
+    { id: 'peryermeneias', title: 'In Peryermeneias', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cpe.html' },
+    { id: 'post-analytica', title: 'In Posteriorum Analyticorum', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cpa1.html' },
+    { id: 'physicorum', title: 'In libros Physicorum', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cpy011.html' },
+    { id: 'caelo', title: 'In De caelo et mundo', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/ccm0.html' },
+    { id: 'generatione', title: 'In De generatione', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cgc00.html' },
+    { id: 'meteora', title: 'In Meteora', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cme1.html' },
+    { id: 'de-anima', title: 'In De anima', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/can1.html' },
+    { id: 'sensu', title: 'In De sensu et sensato', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/css01.html' },
+    { id: 'ethicorum', title: 'In Ethicorum', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/ctc0101.html' },
+    { id: 'politicorum', title: 'In Politicorum', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cpo.html' },
+    { id: 'metaphysicae', title: 'In Metaphysicae', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cmp00.html' },
+    
+    // COMMENTARIA NEOPLATONICA
+    { id: 'de-causis', title: 'Super De causis', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cdc00.html' },
+    { id: 'div-nominibus', title: 'Super De divinis nominibus', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cdn00.html' },
+    
+    // COMMENTARIA IN BOETHIUM
+    { id: 'ebdomadibus', title: 'In De ebdomadibus', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cbh.html' },
+    { id: 'trinitate', title: 'In De Trinitate', category: 'Commentaria', url: 'https://www.corpusthomisticum.org/cbt.html' },
+    
+    // COMMENTARIA BIBLICA
+    { id: 'psalmos', title: 'Super Psalmos', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cps00.html' },
+    { id: 'iob', title: 'Super Iob', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cio00.html' },
+    { id: 'isaiam', title: 'Super Isaiam', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cis00.html' },
+    { id: 'ieremiam', title: 'In Ieremiam', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cph.html' },
+    { id: 'matthaeum', title: 'Super Matthaeum', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cma00.html' },
+    { id: 'ioannem', title: 'Super Ioannem', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cih00.html' },
+    { id: 'romanos', title: 'Super Romanos', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cro00.html' },
+    { id: 'cor1', title: 'Super I Corinthios', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/c1c.html' },
+    { id: 'cor2', title: 'Super II Corinthios', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/c2c.html' },
+    { id: 'galatas', title: 'Super Galatas', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cgl.html' },
+    { id: 'ephesios', title: 'Super Ephesios', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cep.html' },
+    { id: 'philippenses', title: 'Super Philippenses', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/cpl.html' },
+    { id: 'colossenses', title: 'Super Colossenses', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/ccl.html' },
+    { id: 'thes1', title: 'Super I Thessalonicenses', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/c1t.html' },
+    { id: 'tim1', title: 'Super I Timotheum', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/ct1.html' },
+    { id: 'hebraeos', title: 'Super Hebraeos', category: 'Commentaria Biblica', url: 'https://www.corpusthomisticum.org/che00.html' },
+    
+    // COLLATIONES
+    { id: 'symbolum', title: 'In Symbolum Apostolorum', category: 'Collationes', url: 'https://www.corpusthomisticum.org/csv.html' },
+    { id: 'pater', title: 'In orationem dominicam', category: 'Collationes', url: 'https://www.corpusthomisticum.org/csu00.html' },
+    { id: 'ave', title: 'Expositio Salutationis angelicae', category: 'Collationes', url: 'https://www.corpusthomisticum.org/cst.html' },
+    { id: 'praecepta', title: 'De decem praeceptis', category: 'Collationes', url: 'https://www.corpusthomisticum.org/cac.html' }
 ];
 
 // Estado de la aplicación
@@ -105,7 +81,9 @@ let state = {
     workerUrl: '',
     selectedWork: null,
     sections: [],
-    currentSection: 0
+    currentSection: 0,
+    searchTerm: '',
+    selectedCategory: 'all'
 };
 
 // Inicialización
@@ -128,12 +106,72 @@ document.addEventListener('DOMContentLoaded', () => {
 // Renderizar lista de obras
 function renderWorksList() {
     const worksList = document.getElementById('worksList');
-    worksList.innerHTML = WORKS.map((work, index) => `
-        <div class="work-card fade-in" style="animation-delay: ${index * 0.1}s" onclick="loadWork('${work.id}')">
-            <h3>${work.title}</h3>
-            <p>${work.description}</p>
+    
+    // Obtener categorías únicas
+    const categories = ['all', ...new Set(WORKS.map(w => w.category))];
+    
+    // Filtrar obras
+    let filteredWorks = WORKS;
+    
+    if (state.selectedCategory !== 'all') {
+        filteredWorks = filteredWorks.filter(w => w.category === state.selectedCategory);
+    }
+    
+    if (state.searchTerm) {
+        filteredWorks = filteredWorks.filter(w => 
+            w.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+        );
+    }
+    
+    // Crear HTML con búsqueda y filtros
+    worksList.innerHTML = `
+        <div style="margin-bottom: 2rem;">
+            <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Buscar obra..." 
+                    value="${state.searchTerm}"
+                    style="flex: 1; min-width: 250px; padding: 0.75rem; border: 2px solid #e0d5c7; border-radius: 4px; font-family: 'EB Garamond', serif;"
+                >
+                <select 
+                    id="categoryFilter" 
+                    style="padding: 0.75rem; border: 2px solid #e0d5c7; border-radius: 4px; font-family: 'EB Garamond', serif; background: white; min-width: 200px;"
+                >
+                    ${categories.map(cat => `
+                        <option value="${cat}" ${state.selectedCategory === cat ? 'selected' : ''}>
+                            ${cat === 'all' ? 'Todas las categorías' : cat}
+                        </option>
+                    `).join('')}
+                </select>
+            </div>
+            <div style="color: var(--ink-medium); font-size: 0.9rem;">
+                ${filteredWorks.length} obra${filteredWorks.length !== 1 ? 's' : ''} encontrada${filteredWorks.length !== 1 ? 's' : ''}
+            </div>
         </div>
-    `).join('');
+        
+        <div class="works-grid">
+            ${filteredWorks.map((work, index) => `
+                <div class="work-card fade-in" style="animation-delay: ${index * 0.05}s" onclick="loadWork('${work.id}')">
+                    <div style="font-size: 0.75rem; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                        ${work.category}
+                    </div>
+                    <h3>${work.title}</h3>
+                </div>
+            `).join('')}
+        </div>
+    `;
+    
+    // Event listeners
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        state.searchTerm = e.target.value;
+        renderWorksList();
+    });
+    
+    document.getElementById('categoryFilter').addEventListener('change', (e) => {
+        state.selectedCategory = e.target.value;
+        renderWorksList();
+    });
 }
 
 // Cargar una obra
