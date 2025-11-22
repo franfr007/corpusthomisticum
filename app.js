@@ -1,5 +1,6 @@
 // Configuración de obras
 const WORKS = [
+    // Opuscula
     {
         id: 'ente',
         title: 'De ente et essentia',
@@ -29,6 +30,72 @@ const WORKS = [
         title: 'De substantiis separatis',
         description: 'Las sustancias separadas',
         url: 'https://www.corpusthomisticum.org/oss.html'
+    },
+    
+    // Commentaria in Aristotelem
+    {
+        id: 'post-analytica',
+        title: 'In Posteriorum Analyticorum',
+        description: 'Comentario a los Analíticos Posteriores',
+        url: 'https://www.corpusthomisticum.org/cpa1.html'
+    },
+    {
+        id: 'physicorum',
+        title: 'In libros Physicorum',
+        description: 'Comentario a la Física de Aristóteles',
+        url: 'https://www.corpusthomisticum.org/cpy011.html'
+    },
+    {
+        id: 'de-anima',
+        title: 'Sententia libri De anima',
+        description: 'Comentario sobre el alma',
+        url: 'https://www.corpusthomisticum.org/can1.html'
+    },
+    {
+        id: 'ethicorum',
+        title: 'Sententia libri Ethicorum',
+        description: 'Comentario a la Ética a Nicómaco',
+        url: 'https://www.corpusthomisticum.org/ctc0101.html'
+    },
+    {
+        id: 'metaphysicae',
+        title: 'Sententia libri Metaphysicae',
+        description: 'Comentario a la Metafísica',
+        url: 'https://www.corpusthomisticum.org/cmp00.html'
+    },
+    
+    // Commentaria neoplatonica
+    {
+        id: 'de-causis',
+        title: 'Super librum De causis',
+        description: 'Sobre el Libro de las Causas',
+        url: 'https://www.corpusthomisticum.org/cdc00.html'
+    },
+    {
+        id: 'div-nominibus',
+        title: 'Super De divinis nominibus',
+        description: 'Sobre los Nombres Divinos de Dionisio',
+        url: 'https://www.corpusthomisticum.org/cdn00.html'
+    },
+    
+    // Commentaria biblica
+    {
+        id: 'super-iob',
+        title: 'Super Iob',
+        description: 'Comentario al libro de Job',
+        url: 'https://www.corpusthomisticum.org/cio00.html'
+    },
+    {
+        id: 'super-ioannem',
+        title: 'Super Ioannem',
+        description: 'Comentario al Evangelio de Juan',
+        url: 'https://www.corpusthomisticum.org/cih00.html'
+    },
+    {
+        id: 'super-romanos',
+        title: 'Super Romanos',
+        description: 'Comentario a la Epístola a los Romanos',
+        url: 'https://www.corpusthomisticum.org/cro00.html'
     }
 ];
 
