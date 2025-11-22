@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opera Omnia • Sanctus Thomas Aquinas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <div class="container">
+        <header class="fade-in">
+            <h1>Opera Omnia</h1>
+            <p class="subtitle">Sancti Thomae de Aquino</p>
+        </header>
+
+        <div id="app">
+            <div class="api-config fade-in">
+                <h3>Configuración</h3>
+                <div class="input-group">
+                    <input type="text" id="apiKey" placeholder="DeepSeek API Key" value="sk-cba9755f54d246d39fdd24421c8ee1ca">
+                </div>
+                <div class="input-group" style="margin-top: 1rem;">
+                    <input type="text" id="workerUrl" placeholder="URL de tu Cloudflare Worker" value="https://corpus-thomisticum-proxy.francisco-fernandezr.workers.dev">
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--ink-medium);">
+                    ⚠️ Necesitas configurar un Cloudflare Worker para resolver CORS (ver worker.js)
+                </p>
+            </div>
+
+            <div id="worksList" class="works-grid"></div>
+            <div id="reader" class="reader" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
