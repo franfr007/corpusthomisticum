@@ -648,6 +648,16 @@ const WORKS = [
 ];
 
 
+// Estado de la aplicación
+let state = {
+    workerUrl: '',
+    selectedWork: null,
+    sections: [],
+    currentSection: 0,
+    searchTerm: '',
+    collapsedCategories: new Set()
+};
+
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
     state.workerUrl = document.getElementById('workerUrl').value;
@@ -737,7 +747,6 @@ async function loadWork(workId) {
     
     state.selectedWork = work;
     
-    // Mostrar loading
     const reader = document.getElementById('reader');
     reader.innerHTML = `
         <div class="reader-header">
@@ -753,7 +762,6 @@ async function loadWork(workId) {
     document.getElementById('worksList').style.display = 'none';
     
     try {
-        // Fetch del contenido con el Worker como proxy
         const response = await fetch(`${state.workerUrl}/fetch`, {
             method: 'POST',
             headers: {
@@ -771,18 +779,15 @@ async function loadWork(workId) {
         const data = await response.json();
         const html = data.html;
         
-        // Parse del HTML
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         
-        // Extraer el texto latino
         const latinText = extractLatinText(doc);
         
         if (!latinText) {
             throw new Error('No se pudo extraer el texto latino');
         }
         
-        // Dividir en secciones
         state.sections = [{
             title: work.title,
             latin: latinText,
@@ -791,7 +796,6 @@ async function loadWork(workId) {
         
         state.currentSection = 0;
         
-        // Renderizar
         await renderSection(0);
         
     } catch (err) {
@@ -799,7 +803,6 @@ async function loadWork(workId) {
     }
 }
 
-// Ocultar el reader
 function hideReader() {
     document.getElementById('reader').style.display = 'none';
     document.getElementById('worksList').style.display = 'block';
@@ -807,9 +810,7 @@ function hideReader() {
     state.sections = [];
 }
 
-// Extraer texto latino del HTML
 function extractLatinText(doc) {
-    // Buscar el contenido principal (varía según la estructura del Corpus Thomisticum)
     const selectors = [
         'body > p',
         'body > table p',
@@ -829,19 +830,13 @@ function extractLatinText(doc) {
         }
     }
     
-    return text.trim() || `
-        <h2>Obra completa</h2>
-        <p>Esta es una sección de la obra ${state.selectedWork ? state.selectedWork.title : ''}.</p>
-        <p>El texto latino se cargará desde ${state.selectedWork ? state.selectedWork.url : ''}.</p>
-    `;
+    return text.trim() || `Esta es una sección de la obra ${state.selectedWork ? state.selectedWork.title : ''}.`;
 }
 
-// Mostrar error
 function showError(message) {
     const reader = document.getElementById('reader');
     const currentContent = reader.innerHTML;
     
-    // Si ya hay contenido, agregar el error
     if (currentContent && !currentContent.includes('loading')) {
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error';
@@ -860,7 +855,6 @@ function showError(message) {
     }
 }
 
-// Renderizar una sección
 async function renderSection(index) {
     const section = state.sections[index];
     
@@ -906,13 +900,11 @@ async function renderSection(index) {
         </div>
     `;
     
-    // Si no hay traducción, traducir
     if (!section.spanish) {
         await translateSection(index);
     }
 }
 
-// Cambiar de sección
 async function changeSection(newIndex) {
     const index = parseInt(newIndex);
     if (index < 0 || index >= state.sections.length) return;
@@ -921,7 +913,6 @@ async function changeSection(newIndex) {
     await renderSection(index);
 }
 
-// Traducir una sección
 async function translateSection(index) {
     if (!state.workerUrl) {
         showError('Por favor, configura la URL del Cloudflare Worker');
@@ -949,10 +940,8 @@ async function translateSection(index) {
         const data = await response.json();
         const translation = data.translation;
         
-        // Guardar la traducción
         state.sections[index].spanish = translation;
         
-        // Actualizar solo el contenido de la traducción
         const translationContent = document.getElementById('translationContent');
         if (translationContent) {
             translationContent.innerHTML = `<p>${translation}</p>`;
