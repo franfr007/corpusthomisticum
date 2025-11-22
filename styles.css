@@ -6,6 +6,7 @@
     --gold-dark: #b8941f;
     --red-initial: #c1272d;
     --shadow: rgba(42, 24, 16, 0.1);
+    --border-color: #e0d5c7;
 }
 
 * {
@@ -24,75 +25,80 @@ body {
 }
 
 .container {
-    max-width: 1800px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
+/* ============ HEADER ============ */
 header {
     text-align: center;
-    padding: 3rem 0 2rem;
+    padding: 2rem 0 1.5rem;
     border-bottom: 2px solid var(--gold);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     position: relative;
 }
 
 header::before {
-    content: '✠';
+    content: '✝';
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--ink-dark);
     opacity: 0.6;
 }
 
 h1 {
     font-family: 'Crimson Pro', serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--ink-dark);
     letter-spacing: 2px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     text-transform: uppercase;
 }
 
 .subtitle {
     font-style: italic;
     color: var(--ink-medium);
-    font-size: 1.1rem;
+    font-size: 1rem;
     letter-spacing: 1px;
 }
 
+/* ============ API CONFIG ============ */
 .api-config {
     background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px var(--shadow);
-    margin-bottom: 2rem;
+    padding: 1.2rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px var(--shadow);
+    margin-bottom: 1.5rem;
     border-left: 4px solid var(--gold);
 }
 
 .api-config h3 {
     font-family: 'Crimson Pro', serif;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     color: var(--ink-dark);
+    font-size: 1.1rem;
 }
 
 .input-group {
     display: flex;
     gap: 1rem;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 input[type="text"] {
     flex: 1;
-    padding: 0.75rem;
-    border: 2px solid #e0d5c7;
+    min-width: 250px;
+    padding: 0.6rem;
+    border: 2px solid var(--border-color);
     border-radius: 4px;
     font-family: 'EB Garamond', serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     background: var(--parchment);
     transition: all 0.3s;
 }
@@ -104,18 +110,18 @@ input[type="text"]:focus {
 }
 
 button {
-    padding: 0.75rem 2rem;
+    padding: 0.6rem 1.5rem;
     background: var(--gold);
     color: var(--ink-dark);
     border: none;
     border-radius: 4px;
     font-family: 'Crimson Pro', serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 button:hover {
@@ -130,21 +136,82 @@ button:disabled {
     transform: none;
 }
 
+/* ============ CATEGORÍAS ============ */
+.category-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.category-header {
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.category-header:hover {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+}
+
+.category-header h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.4rem;
+    color: var(--ink-dark);
+    margin: 0;
+    font-weight: 600;
+}
+
+.category-count {
+    background: rgba(42, 24, 16, 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.category-toggle {
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.category-section.collapsed .category-toggle {
+    transform: rotate(-90deg);
+}
+
+.category-content {
+    max-height: 5000px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.category-section.collapsed .category-content {
+    max-height: 0;
+}
+
+/* ============ GRID DE OBRAS ============ */
 .works-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f9f7f4;
 }
 
 .work-card {
     background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px var(--shadow);
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 6px rgba(42, 24, 16, 0.08);
     cursor: pointer;
-    transition: all 0.3s;
-    border: 2px solid transparent;
+    transition: all 0.25s;
+    border: 1px solid var(--border-color);
     position: relative;
     overflow: hidden;
 }
@@ -158,12 +225,12 @@ button:disabled {
     height: 100%;
     background: var(--gold);
     transform: scaleY(0);
-    transition: transform 0.3s;
+    transition: transform 0.25s;
 }
 
 .work-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px var(--shadow);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(42, 24, 16, 0.12);
     border-color: var(--gold);
 }
 
@@ -173,16 +240,45 @@ button:disabled {
 
 .work-card h3 {
     font-family: 'Crimson Pro', serif;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
     color: var(--ink-dark);
+    line-height: 1.3;
+    font-weight: 600;
 }
 
 .work-card p {
     color: var(--ink-medium);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    margin: 0;
 }
 
+/* ============ BUSCADOR ============ */
+.search-box {
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    background: var(--parchment);
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* ============ LECTOR ============ */
 .reader {
     background: white;
     border-radius: 8px;
@@ -192,7 +288,7 @@ button:disabled {
 
 .reader-header {
     background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
-    padding: 1.5rem;
+    padding: 1.2rem 1.5rem;
     color: var(--ink-dark);
     display: flex;
     justify-content: space-between;
@@ -201,7 +297,8 @@ button:disabled {
 
 .reader-header h2 {
     font-family: 'Crimson Pro', serif;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    font-weight: 600;
 }
 
 .reader-controls {
@@ -209,8 +306,9 @@ button:disabled {
     gap: 1rem;
     padding: 1rem 1.5rem;
     background: #f9f7f4;
-    border-bottom: 1px solid #e0d5c7;
+    border-bottom: 1px solid var(--border-color);
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .control-group {
@@ -228,11 +326,12 @@ button:disabled {
 
 select {
     padding: 0.5rem;
-    border: 2px solid #e0d5c7;
+    border: 2px solid var(--border-color);
     border-radius: 4px;
     font-family: 'EB Garamond', serif;
     background: white;
     cursor: pointer;
+    font-size: 0.9rem;
 }
 
 .text-display {
@@ -249,8 +348,8 @@ select {
 
 .text-column h3 {
     font-family: 'Crimson Pro', serif;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
     color: var(--ink-dark);
     text-align: center;
     padding-bottom: 0.5rem;
@@ -258,8 +357,8 @@ select {
 }
 
 .text-content {
-    font-size: 1.3rem;
-    line-height: 1.9;
+    font-size: 1.2rem;
+    line-height: 1.8;
     color: var(--ink-dark);
     text-align: justify;
 }
@@ -270,7 +369,7 @@ select {
 }
 
 .text-content p:first-of-type::first-letter {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
     float: left;
     line-height: 0.9;
@@ -278,6 +377,7 @@ select {
     color: var(--red-initial);
 }
 
+/* ============ LOADING & ERROR ============ */
 .loading {
     display: flex;
     flex-direction: column;
@@ -290,7 +390,7 @@ select {
 .spinner {
     width: 50px;
     height: 50px;
-    border: 4px solid #e0d5c7;
+    border: 4px solid var(--border-color);
     border-top-color: var(--gold);
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -313,7 +413,7 @@ select {
     background: transparent;
     color: var(--ink-dark);
     border: 2px solid var(--ink-dark);
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.2rem;
 }
 
 .back-button:hover {
@@ -321,18 +421,9 @@ select {
     color: white;
 }
 
-@media (max-width: 768px) {
-    .text-display {
-        grid-template-columns: 1fr;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    .input-group {
-        flex-direction: column;
-    }
+/* ============ UTILITY CLASSES ============ */
+.d-none {
+    display: none;
 }
 
 .fade-in {
@@ -340,6 +431,67 @@ select {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1200px) {
+    .works-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .text-display {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .reader-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .control-group {
+        width: 100%;
+    }
+
+    .control-group select,
+    .control-group button {
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-content {
+        font-size: 1.1rem;
+    }
+
+    .work-card h3 {
+        font-size: 1rem;
+    }
 }
