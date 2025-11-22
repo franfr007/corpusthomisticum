@@ -44,7 +44,7 @@ header::before {
     left: 50%;
     transform: translateX(-50%);
     font-size: 2rem;
-    color: var(--red-initial);
+    color: var(--ink-dark);
     opacity: 0.6;
 }
 
